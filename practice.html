@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="Store">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Angularjs Practice</title>
+    <link rel="stylesheet" href="">
+    <!-- Latest compiled and minified CSS -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script type="text/javascript" src="https://code.angularjs.org/1.4.9/angular.min.js"></script>
+
+    <script type="text/javascript" src="js/apppractice.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+        });
+    </script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="panel panel-default col-md-4" ng-controller="mainController as store">
+        <div class="panel-body" ng-repeat="sp in store.product">
+            <h1>{{ sp.name }}</h1>
+            <h2>{{ sp.price }}</h2>
+            <p>{{ sp.description }}</p>
+            <div class="thumbnail">
+                <img ng-src="{{ sp.images[0].full }}" alt=""/>
+            </div>
+            <button ng-show="sp.inStock" class="btn btn-primary">Buy now</button>
+            <section ng-controller="panelController as panel">
+                <ul class="nav nav-pills">
+                    <li ng-class="{active:panel.isSelected('description')}">
+                        <a ng-click="panel.setTab('description')" href="#">Description</a>
+                    </li>
+                    <li ng-class="{active:panel.isSelected('config')}">
+                        <a ng-click="panel.setTab('config')" href="#">Config</a>
+                    </li>
+                    <li ng-class="{active:panel.isSelected('vote')}">
+                        <a ng-click="panel.setTab('vote')" href="#">Vote</a>
+                    </li>
+                </ul>
+                <div class="panel" ng-show="panel.isSelected('description')">
+                    <h4>Giới thiệu</h4>
+                    <p>{{ sp.description }}</p>
+                </div>
+                <div class="panel" ng-show="panel.isSelected('config')">
+                    <h4>Cấu hình</h4>
+                    <p>None yet</p>
+                </div>
+                <div class="panel" ng-show="panel.isSelected('vote')">
+                    <h4>Đánh giá</h4>
+                    <p>None yet</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
+    
