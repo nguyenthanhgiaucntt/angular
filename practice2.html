@@ -50,7 +50,11 @@
                             <h4>Nội dung cấu hình</h4>
                         </div>
                         <div class="panel" ng-show="panel.isSelected('review')">
-                            <h4>Nội dung mô tả</h4>
+                            <blockquote ng-repeat="review in prod.reviews"><!---->
+                                <b>{{ review.stars }}</b>
+                                {{ review.body }}
+                                <cite>by: {{ review.author }}</cite>
+                            </blockquote>
                         </div>
                     </section>
                 </div>

@@ -35,21 +35,42 @@ var products = [
 
         ],
         inStock: true,
-        review : []
+        reviews : [
+            {
+                stars: 5,
+                body: "I love this product.",
+                author: "giaunt@outlook.com"
+            },
+            {
+                stars: 1,
+                body: "This product sucks",
+                author: "giaunt@outlook.com"
+            }
+        ]
     },
     {
-        name : "Samsung S8 128G",
+        name: "Samsung S8 128G",
         price: 'Gia: 930 $',
         description: "This is content description for product",
-        images : [
-        {
-            full : "images/ipad.jpg",
-            thumb : "images/ipad.jpg"
-        }
+        images: [
+            {
+                full: "images/ipad.jpg",
+                thumb: "images/ipad.jpg"
+            }
 
         ],
         inStock: true,
-        review : []
+        reviews: [
+            {
+                stars: 5,
+                body: "I love this product.",
+                author: "giaunt@outlook.com"
+            },
+            {
+                stars: 1,
+                body: "This product sucks",
+                author: "giaunt@outlook.com"
+            }
+        ]
     }
-
 ];
