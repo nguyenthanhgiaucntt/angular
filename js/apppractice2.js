@@ -22,6 +22,16 @@ myApp.controller('panelController',function(){
     };
 });
 
+//-----controller review--
+myApp.controller('ReviewController',function(){
+    this.review = {};
+
+    //xuly khi submit
+    this.addReview = function(product){
+        product.reviews.push(this.review);
+        this.review = {};
+    };
+});
 var products = [
     {
         name : "Iphone 6 128G",
@@ -74,3 +84,28 @@ var products = [
         ]
     }
 ];
+
+//------------- custom directive
+myApp.directive('productTitle',function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'product-title.html'
+    };
+});
+
+myApp.directive('productPanel',function(){
+    return {
+        restrict:'E',
+        templateUrl: 'product-panel.html',
+        controller: function(){
+            this.tab='des';
+            this.setTab = function(tab){
+                this.tab = tab;
+            };
+            this.isSelected = function(tab){
+                return this.tab === tab;
+            }
+        },
+        controllerAs:'panel'
+    }
+});

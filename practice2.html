@@ -24,54 +24,12 @@
     <div class="panel panel-default" ng-controller="storeController as store">
         <div class="panel-body" ng-repeat="prod in store.product">
             <div class="row">
-                <div class="col-md-4">
-                    <h1>{{ prod.name }}</h1>
-                    <h2>{{ prod.price }}</h2>
-                    <img class="thumb" ng-src="{{ prod.images[0].full }}" alt=""/>
-                    <p>{{ prod.description }}</p>
-                    <button ng-show="{{ prod.inStock }}" class="btn btn-primary">Buy now</button>
+                <div class="col-md-8">
+                    <product-title></product-title>
                     <hr/>
-                    <section ng-controller="panelController as panel">
-                        <ul class="nav nav-pills">
-                            <li ng-class="{active:panel.isSelected('des')}">
-                                <a ng-click="panel.setTab('des')" href="">Giới thiệu</a>
-                            </li>
-                            <li ng-class="{active:panel.isSelected('config')}">
-                                <a ng-click="panel.setTab('config')" href="">Thông số</a>
-                            </li>
-                            <li ng-class="{active:panel.isSelected('review')}">
-                                <a ng-click="panel.setTab('review')" href="">Đánh giá</a>
-                            </li>
-                        </ul>
-                        <div class="panel" ng-show="panel.isSelected('des')">
-                            <h4>Nội dung giới thiệu</h4>
-                        </div>
-                        <div class="panel" ng-show="panel.isSelected('config')">
-                            <h4>Nội dung cấu hình</h4>
-                        </div>
-                        <div class="panel" ng-show="panel.isSelected('review')">
-                            <blockquote ng-repeat="review in prod.reviews"><!---->
-                                <b>{{ review.stars }}</b>
-                                {{ review.body }}
-                                <cite>by: {{ review.author }}</cite>
-                            </blockquote>
-                        </div>
-                    </section>
+                    <product-panel></product-panel>
                 </div>
-                <div class="col-md-4">
-                    <h1>{{ prod.name }}</h1>
-                    <h2>{{ prod.price }}</h2>
-                    <img ng-src="{{ prod.images[0].full }}" alt=""/>
-                    <p>{{ prod.description }}</p>
-                    <button ng-show="{{ prod.inStock }}" class="btn btn-primary">Buy now</button>
-                </div>
-                <div class="col-md-4">
-                    <h1>{{ prod.name }}</h1>
-                    <h2>{{ prod.price }}</h2>
-                    <img ng-src="{{ prod.images[0].full }}" alt=""/>
-                    <p>{{ prod.description }}</p>
-                    <button ng-show="{{ prod.inStock }}" class="btn btn-primary">Buy now</button>
-                </div>
+
             </div>
         </div>
     </div>

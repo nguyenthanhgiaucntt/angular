@@ -1,0 +1,5 @@
+<h1>{{ prod.name }}</h1>
+<h2>{{ prod.price }}</h2>
+<img class="thumb" ng-src="{{ prod.images[0].full }}" alt=""/>
+<p>{{ prod.description }}</p>
+<button ng-show="{{ prod.inStock }}" class="btn btn-primary">Buy now</button>

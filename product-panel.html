@@ -1,0 +1,59 @@
+<section ng-controller="panelController as panel">
+    <ul class="nav nav-pills">
+        <li ng-class="{active:panel.isSelected('des')}">
+            <a ng-click="panel.setTab('des')" href="">Giới thiệu</a>
+        </li>
+        <li ng-class="{active:panel.isSelected('config')}">
+            <a ng-click="panel.setTab('config')" href="">Thông số</a>
+        </li>
+        <li ng-class="{active:panel.isSelected('review')}">
+            <a ng-click="panel.setTab('review')" href="">Đánh giá</a>
+        </li>
+    </ul>
+    <div class="panel" ng-show="panel.isSelected('des')">
+        <h4>Nội dung giới thiệu</h4>
+    </div>
+    <div class="panel" ng-show="panel.isSelected('config')">
+        <h4>Nội dung cấu hình</h4>
+    </div>
+    <div class="panel" ng-show="panel.isSelected('review')">
+        <form name="reviewForm" class="form-horizontal" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtl.addReview(product)">
+            <blockquote>
+                <b>{{reviewCtrl.review.stars}} star(s)</b>
+                {{reviewCtrl.review.body}}
+                <cite>- {{reviewCtrl.review.author}}</cite>
+            </blockquote>
+
+            <div class="form-group">
+                <label class="col-sm-1 control-label">Email</label>
+                <div class="col-sm-6">
+                    <input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="Email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 control-label">Review</label>
+                <div class="col-sm-6">
+                    <textarea ng-model="reviewCtrl.review.body" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-1 control-label">Star</label>
+                <div class="col-sm-6">
+                    <select ng-model="reviewCtrl.review.stars" class="form-control">
+                        <option value="1">1 star</option>
+                        <option value="2">2 stars</option>
+                        <option value="3">3 stars</option>
+                        <option value="4">4 stars</option>
+                        <option value="5">5 stars</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div>xac nhan du lieu: {{reviewForm.$valid}}</div>
+                <div class="col-sm-offset-1 col-sm-10">
+                    <button type="submit" class="btn btn-default">Gửi</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
